@@ -33,7 +33,7 @@ class BookServiceImplRS implements BookServiceRS {
         	book_list = dao.getAll();        	
         }
         catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
+        	Response.ok("Failed: " + e.getMessage()).build();
         }        
         
         return Response.ok(book_list).build();
@@ -49,7 +49,7 @@ class BookServiceImplRS implements BookServiceRS {
         	bk = dao.find(isbn);
         }
         catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
+        	Response.ok("Failed: " + e.getMessage()).build();
         }
         return Response.ok(bk).build();
     }
@@ -62,8 +62,7 @@ class BookServiceImplRS implements BookServiceRS {
         	dao.insert(bk);
         }
         catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
-        	//Response.status(Response.Status.CONFLICT).build();
+        	Response.ok("Failed: " + e.getMessage()).build();
         }
 	    return Response.ok("Successfully Added").build();
     }
@@ -76,7 +75,7 @@ class BookServiceImplRS implements BookServiceRS {
         	dao.update(bk);
         }
         catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
+        	Response.ok("Failed: " + e.getMessage()).build();
         }
 	    return Response.ok("Successfully Updated").build();
     }
@@ -89,7 +88,7 @@ class BookServiceImplRS implements BookServiceRS {
         	dao.delete(isbn);
         }
         catch(Exception e) {
-            throw new RuntimeException(e.getMessage());
+        	Response.ok("Failed: " + e.getMessage()).build();
         }
         return Response.ok("Successfully Removed").build();
    }    

@@ -10,15 +10,14 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
 import pmj.j2ee.bookstore.model.BookBean;
 import pmj.j2ee.bookstore.service.BookService;
-import pmj.j2ee.bookstore.service.BookServiceFactory;
 import pmj.j2ee.bookstore.service.BookTO;
 
-public class BookBD1 {	
+public class BookBDRS {	
 
 	private BookService service;
 	private ResteasyClient client;
 
-	private BookBD1() {
+	private BookBDRS() {
 		
 		UriBuilder path = UriBuilder.fromPath("http://127.0.0.1:8082/bookstore");
 		
@@ -28,11 +27,11 @@ public class BookBD1 {
 	
 	}
 	
-	private static BookBD1 _this;
+	private static BookBDRS _this;
 	
-	public static BookBD1 getInstance() {
+	public static BookBDRS getInstance() {
 		if ( _this == null )
-			_this = new BookBD1();
+			_this = new BookBDRS();
 		return _this;
 	}	
 	
